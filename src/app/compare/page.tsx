@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 
 import CompareChart from '@/components/charts/CompareChart'
+import CompanyAutocomplete from '@/components/search/CompanyAutocomplete'
 
 interface CompareData {
   company: string
@@ -82,15 +83,10 @@ export default function ComparePage() {
                 Compare Companies
               </label>
 
-              <input
-                type="text"
-                value={companies}
-                onChange={(e) =>
-                  setCompanies(e.target.value)
-                }
-                placeholder="Google, Meta, Amazon"
-                className="w-full bg-black/30 text-base md:text-lg border border-zinc-800 rounded-2xl px-5 py-4 outline-none transition-all focus:border-green-500/40"
-              />
+              <CompanyAutocomplete
+  value={companies}
+  onChange={setCompanies}
+/>
 
             </div>
 

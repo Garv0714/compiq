@@ -38,7 +38,7 @@ const RoleDistributionChart = dynamic(
       }
 
       return (
-        <div className="w-full h-[420px] min-h-[420px]">
+        <div className="w-full min-w-0 h-[420px] flex justify-center">
 
           <ResponsiveContainer
             width="100%"

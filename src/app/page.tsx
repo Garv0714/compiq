@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import SalaryTable from '@/components/tables/SalaryTable'
+import Leaderboard from '@/components/analytics/Leaderboard'
 
 export default function HomePage() {
   return (
@@ -108,6 +109,7 @@ export default function HomePage() {
 
           <SalaryTable />
         </div>
+        <Leaderboard />
       </div>
     </main>
   )
