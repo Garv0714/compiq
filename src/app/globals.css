@@ -1,26 +1,185 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050505;
+  --foreground: #f4f4f5;
+
+  --card: rgba(15, 15, 15, 0.75);
+  --border: rgba(255, 255, 255, 0.08);
+
+  --muted: #a1a1aa;
+
+  --primary: #22c55e;
+  --primary-dark: #16a34a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(34, 197, 94, 0.12),
+      transparent 25%
+    ),
+    #050505;
+
   color: var(--foreground);
+
   font-family: Arial, Helvetica, sans-serif;
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+}
+
+/* GRID BACKGROUND */
+
+.hero-grid {
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px
+    );
+
+  background-size: 40px 40px;
+}
+
+/* GLASS CARD */
+
+.glass-card {
+  background: var(--card);
+
+  backdrop-filter: blur(16px);
+
+  border: 1px solid var(--border);
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.02),
+    0 10px 30px rgba(0,0,0,0.45);
+}
+
+/* PREMIUM TEXT */
+
+.gradient-text {
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #22c55e
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* PREMIUM BUTTON */
+
+.primary-button {
+  background: linear-gradient(
+    to right,
+    #22c55e,
+    #16a34a
+  );
+
+  color: white;
+
+  border-radius: 16px;
+
+  transition: all 0.3s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(34,197,94,0.3);
+}
+
+/* CUSTOM SCROLLBAR */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* TEXT SELECTION */
+
+::selection {
+  background: #22c55e;
+  color: black;
+}
+
+/* INPUT STYLING */
+
+input,
+select {
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: rgba(34, 197, 94, 0.5);
+
+  box-shadow:
+    0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+
+/* TABLE */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+tr {
+  transition: background 0.2s ease;
+}
+
+tr:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+/* ANIMATIONS */
+
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
