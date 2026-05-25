@@ -3,7 +3,7 @@ import { generateInsights } from '@/lib/insights'
 
 async function getCompanyData(company: string) {
   const res = await fetch(
-    `http://localhost:3000/api/companies/${company}`,
+  `${process.env.NEXT_PUBLIC_BASE_URL}/api/companies/${company}`,
     {
       cache: 'no-store',
     }
